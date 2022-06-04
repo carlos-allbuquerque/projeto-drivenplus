@@ -1,12 +1,16 @@
 import { useNavigate, Link } from "react-router-dom";
 import * as S from "./style";
 import DrivenPlus from "../../assets/DrivenPlus.svg"
-import { useState } from "react";
+import { useState, useContext} from "react";
 import axios from "axios";
+import TokenContext from "../../constexts/TokenContext";
+
 
 export default function Login() {
     const URL = "https://mock-api.driven.com.br/api/v4/driven-plus/auth/login";
     const navigate = useNavigate();
+
+    const {setToken} = useContext(TokenContext);
 
     const [userData, setUserData] = useState({
         email: "",
@@ -19,23 +23,23 @@ export default function Login() {
             <img src={DrivenPlus} alt="" />
             <S.Form onSubmit={login}>
                 <input
-                required
-                placeholder="E-mail"
-                type= "email"
-                value={userData.email}
-                onChange={(e) => 
-                    setUserData({...userData, email: e.target.value})
-                }
+                    required
+                    placeholder="E-mail"
+                    type= "email"
+                    value={userData.email}
+                    onChange={(e) => 
+                        setUserData({...userData, email: e.target.value})
+                    }
                 />
 
             <input
-                required
-                placeholder="Senha"
-                type="password"
-                value={userData.password}
-                onChange={(e) => 
-                    setUserData({...userData, password: e.target.value})
-                }
+                    required
+                    placeholder="Senha"
+                    type="password"
+                    value={userData.password}
+                    onChange={(e) => 
+                        setUserData({...userData, password: e.target.value})
+                    }
                 />
                 <button type="submit">ENTRAR</button>
             </S.Form>
@@ -50,7 +54,10 @@ export default function Login() {
 
         axios
             .post(URL, userData)
-            .then((response) => redirect(response.data))
+            .then((response) => {
+                setToken(response.data.token);
+                redirect(response.data);
+            })
             .catch(() => alert("Não foi possível logar na conta"));
     }
 
