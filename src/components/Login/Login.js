@@ -3,14 +3,14 @@ import * as S from "./style";
 import DrivenPlus from "../../assets/DrivenPlus.svg"
 import { useState, useContext} from "react";
 import axios from "axios";
-import TokenContext from "../../constexts/TokenContext";
+import UserContext from "../../constexts/UserContext";
 
 
 export default function Login() {
     const URL = "https://mock-api.driven.com.br/api/v4/driven-plus/auth/login";
     const navigate = useNavigate();
 
-    const {setToken} = useContext(TokenContext);
+    const { setUser } = useContext(UserContext);
 
     const [userData, setUserData] = useState({
         email: "",
@@ -55,7 +55,8 @@ export default function Login() {
         axios
             .post(URL, userData)
             .then((response) => {
-                setToken(response.data.token);
+                setUser(response.data);
+                console.log(response.data)
                 redirect(response.data.membership);
             })
             .catch(() => alert("Não foi possível logar na conta"));

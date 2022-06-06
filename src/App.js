@@ -2,25 +2,27 @@ import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Subscriptions from "./components/Subscriptions/Subscriptions";
 import Plan from "./components/Plan/Plan";
+import Home from "./components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TokenContext from "./constexts/TokenContext";
+import UserContext from "./constexts/UserContext";
 import { useState } from "react";
 
 
 
 export default function App() {
-    const [token, setToken] = useState("");
+    const [user, setUser] = useState({});
 
     return (
-            <TokenContext.Provider value={{token, setToken}}>
+            <UserContext.Provider value={{user, setUser}}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Login />} />
                         <Route path="/sign-up" element={<SignUp />}/>
                         <Route path="/subscriptions" element={<Subscriptions />} />
                         <Route path="/subscriptions/:planId" element={<Plan />} />
+                        <Route path="/home" element={<Home />}/>
                     </Routes>
                 </BrowserRouter>
-            </TokenContext.Provider>  
+            </UserContext.Provider>  
     );
 }

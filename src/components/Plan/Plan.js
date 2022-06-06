@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import TokenContext from "../../constexts/TokenContext";
+import UserContext from "../../constexts/UserContext";
 import { useParams } from "react-router";
 import * as S from "./style";
 import VectorList from "../../assets/VectorList.svg";
@@ -13,7 +13,7 @@ export default function Plan() {
     const URL = "https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships";
 
     const { planId } = useParams();
-    const {token} = useContext(TokenContext);
+    const {user} = useContext(UserContext);
     const [planData, setPlanData] = useState({});
     const [perks, setPerks] = useState([]);
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function Plan() {
 
     const requestHeader = {
         headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${user.token}`,
         },
     };
 
@@ -38,7 +38,6 @@ export default function Plan() {
             .get(`${URL}/${planId}`, requestHeader)
             .then(response => {
             setPlanData(response.data)
-            console.log(response.data)
             setPerks(response.data.perks)
             setCardData({...cardData, membershipId: response.data.id})
             })
@@ -80,7 +79,7 @@ export default function Plan() {
                         <input
                             required
                             placeholder="digitos do cartão"
-                            type= "digits"
+                            type= "number"
                             value={cardData.cardNumber}
                             onChange={(e) => 
                                 setCardData({...cardData, cardNumber: e.target.value})
@@ -90,7 +89,7 @@ export default function Plan() {
                             <input
                                 required
                                 placeholder="Código de segurança"
-                                type= "securityNumber"
+                                type= "number"
                                 value={cardData.securityNumber}
                                 onChange={(e) => 
                                     setCardData({...cardData, securityNumber: parseInt(e.target.value) })
@@ -119,7 +118,10 @@ export default function Plan() {
     function sign() {
         axios
             .post("https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions",  cardData, requestHeader)
-            .then(() => navigate("home"))
+            .then(() => {
+                alert("Plano assinado com sucesso!")
+                navigate("/home")
+            })
             .catch(() => alert("Não foi possível assinar o plano"))
     }
 }

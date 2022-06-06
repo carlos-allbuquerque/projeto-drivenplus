@@ -96,7 +96,7 @@ export const MContainer = styled.div`
     display: ${props => props.display};
     flex-direction: column;
     z-index: 1;
-    background-color: rgb(0,0,0,0.5);
+    background-color: rgb(0,0,0,0.6);
     position: absolute;
 `
 
