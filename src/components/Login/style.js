@@ -20,12 +20,12 @@ export const Container = styled.div`
 `
 
 export const Form = styled.form`
+
     display: flex;
     flex-direction: column;
     input {
         width: 320px;
         height: 52px;
-        font-family: "Lexend Deca";
         padding: 7px;
         margin-bottom: 8px;
         border: 1px solid #d5d5d5;
@@ -36,10 +36,12 @@ export const Form = styled.form`
         line-height: 25px;
         color: #666666;
         margin-top: 10px;
+        font-family: 'Roboto', sans-serif;
     }
     
     input::placeholder {
         color: #7E7E7E;
+        font-family: 'Roboto', sans-serif;
     }
 
     button {

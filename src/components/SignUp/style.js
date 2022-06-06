@@ -24,7 +24,7 @@ export const Form = styled.form`
     input {
         width: 320px;
         height: 52px;
-        font-family: "Lexend Deca";
+        font-family: 'Roboto', sans-serif;
         padding: 7px;
         margin-bottom: 8px;
         border: 1px solid #d5d5d5;
@@ -39,6 +39,7 @@ export const Form = styled.form`
 
     input::placeholder {
         color: #7E7E7E;
+        font-family: 'Roboto', sans-serif;
     }
 
     button {

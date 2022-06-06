@@ -32,9 +32,8 @@ export const Form = styled.form`
     input {
         width: 95%;
         height: 52px;
-        font-family: "Lexend Deca";
+        font-family: 'Roboto', sans-serif;
         padding: 7px;
-        
         border: 1px solid #d5d5d5;
         border-radius: 8px;
         font-style: normal;
@@ -48,6 +47,7 @@ export const Form = styled.form`
     input::placeholder {
         color: #7E7E7E;
         font-size: 14px;
+        font-family: 'Roboto', sans-serif;
     }
 
     button {

@@ -6,9 +6,6 @@ import Home from "./components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./constexts/UserContext";
 import { useState } from "react";
-
-
-
 export default function App() {
     const [user, setUser] = useState({});
 
