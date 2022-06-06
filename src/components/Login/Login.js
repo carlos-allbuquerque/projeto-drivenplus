@@ -56,7 +56,7 @@ export default function Login() {
             .post(URL, userData)
             .then((response) => {
                 setToken(response.data.token);
-                redirect(response.data);
+                redirect(response.data.membership);
             })
             .catch(() => alert("Não foi possível logar na conta"));
     }

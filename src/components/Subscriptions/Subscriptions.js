@@ -10,7 +10,7 @@ export default function Subscriptions() {
     const {token} = useContext(TokenContext);
     const [plans, setPlans] = useState([]);
     const navigate = useNavigate();
-    
+
     const requestHeader = {
         headers: {
         Authorization: `Bearer ${token}`,
@@ -27,19 +27,15 @@ export default function Subscriptions() {
     return (
         <S.Container>
             <h1>Escolha seu Plano</h1>
-            {plans.map((item, index) => <Plan id={item.id} image ={item.image} price={item.price} key={index} navigate={navigate}/>)}
+            {plans.map((item, index) => <Plan id={item.id} image ={item.image} price={item.price} key={index} navigate={navigate} />)}
         </S.Container>
     );
 
-    function choosePlan(id) {
-        navigate(`subscriptions/${id}`);
-    }
 }
+
 function Plan({id, image, price, navigate}) {
-
-
     return (
-        <S.Box onClick={() => {navigate(`subscriptions/${id}`)}}>
+        <S.Box onClick={() => {navigate(`/subscriptions/${id}`)}}>
             <img src={image} alt="" />
             <h2>{` R$ ${price}`}</h2>
         </S.Box>
