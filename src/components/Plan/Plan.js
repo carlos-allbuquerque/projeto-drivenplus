@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import axios from "axios";
 import UserContext from "../../constexts/UserContext";
 import { useParams } from "react-router";
@@ -18,6 +18,7 @@ export default function Plan() {
     const [perks, setPerks] = useState([]);
     const navigate = useNavigate();
     const [appear, setAppear] = useState(false);
+    const ref = useRef();
     const [cardData, setCardData] = useState({
         membershipId: 0,
         cardName: "",
@@ -99,8 +100,9 @@ export default function Plan() {
                                 required
                                 placeholder="Validade"
                                 type= "text"
-                                onFocus={(e) => (e.target.type = "month")}
-                                onBlur={(e) => (e.target.type = "text")}
+                                ref={ref}
+                                onFocus={() => (ref.current.type = "month")}
+                                onBlur={() => (ref.current.type = "text")}
                                 value={cardData.expirationDate}
                                 onChange={(e) => 
                                     setCardData({...cardData, expirationDate: e.target.value})
