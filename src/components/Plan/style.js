@@ -7,15 +7,21 @@ export const Container = styled.div`
     align-items: center;
     color: #FFFFFF;
     position: relative;
+    font-family: 'Roboto', sans-serif;
 
     h1{
         color: #FFFFFF;
         font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        margin-top: 40px;
     }
+
+
 
     h3 {
         font-size: 14px;
-        margin: 0;
+        font-weight: 400px;
     }
 `
 
@@ -70,6 +76,8 @@ export const Logo = styled.img`
 
 export const Flex = styled.div`
     display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
 `
 
 export const FlexInputs = styled.div`
@@ -113,7 +121,7 @@ export const Message = styled.div`
 
     h1 {
         color: black;
-        font-size: 19px;
+        font-size: 18px;
     }
 `
 export const Yes = styled.button`

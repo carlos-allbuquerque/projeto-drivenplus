@@ -6,11 +6,14 @@ import Home from "./components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./constexts/UserContext";
 import { useState } from "react";
+import GlobalStyles
+ from "./GlobalStyles";
 export default function App() {
     const [user, setUser] = useState({});
 
     return (
             <UserContext.Provider value={{user, setUser}}>
+                <GlobalStyles />
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Login />} />

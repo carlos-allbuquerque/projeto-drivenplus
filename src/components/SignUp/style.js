@@ -13,6 +13,8 @@ export const Container = styled.div`
         font-size: 14px;
         font-weight: 400;
         text-decoration: underline;
+        margin-top: 30px;
+        font-family: 'Roboto', sans-serif;
     }
 `
 

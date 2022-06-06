@@ -19,15 +19,19 @@ export const Profile = styled.img`
 `
 
 export const Container = styled.div`
+    height: 100vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 90%;
+    font-family: 'Roboto', sans-serif;
 
     h1 {
         color: #FFFFFF;
         margin-bottom: 20px;
         margin-top: 10px;
+        font-weight: 700;
+        font-size: 26px;
     }
 `
 

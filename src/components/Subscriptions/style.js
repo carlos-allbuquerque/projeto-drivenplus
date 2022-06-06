@@ -6,10 +6,13 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Roboto', sans-serif;
 
     h1 {
         font-size: 32px;
+        font-weight: 700;
         color: #FFFFFF;
+        margin-bottom: 60px;
     }
 
 `
@@ -34,5 +37,6 @@ export const Box = styled.div`
     h2 {
         color: #FFFFFF;
         font-size: 24px;
+        font-weight: 700;
     }
 `
