@@ -98,7 +98,9 @@ export default function Plan() {
                             <input
                                 required
                                 placeholder="Validade"
-                                type= "month"
+                                type= "text"
+                                onFocus={(e) => (e.target.type = "month")}
+                                onBlur={(e) => (e.target.type = "text")}
                                 value={cardData.expirationDate}
                                 onChange={(e) => 
                                     setCardData({...cardData, expirationDate: e.target.value})
