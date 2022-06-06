@@ -61,7 +61,7 @@ export default function Login() {
             .catch(() => alert("Não foi possível logar na conta"));
     }
 
-    function redirect(response) {
-        (response.merbership) ? navigate("/home"):navigate("/subscriptions");
+    function redirect(membership) {
+        (membership) ? navigate("/home"):navigate("/subscriptions");
     }
 }
